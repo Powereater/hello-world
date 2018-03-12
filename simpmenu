@@ -1,0 +1,27 @@
+echo "
+
+choose from 1-3
+1.fart
+2.date
+3.butt"
+
+read -p "enter sselection 1-3 > "
+echo "you ve selected $REPLY"
+
+if [[ $REPLY =~ ^[1-3]$ ]]; then
+	if [[ $REPLY == 1 ]]; then
+		echo "fart fart fart"
+		exit
+	fi
+	if [[ $REPLY == 2 ]]; then
+		echo $(date)
+		exit
+	fi
+	if [[ $REPLY == 3 ]]; then
+		echo "butt butt butt"
+		exit
+	fi
+else
+	echo "invalid, cant you read?" >&2
+	exit 1
+fi

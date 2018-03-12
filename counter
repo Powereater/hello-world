@@ -1,0 +1,15 @@
+#!/bin/bash -x
+
+read -p "i will count to 5 : "
+count=$REPLY
+
+#count=1
+
+while [ $count -le 5 ]; do
+	echo $count
+	count=$((count + 1 ))
+	sleep 5
+echo "countering giles"
+done
+echo "Finished."
+echo "end of counting giles"
