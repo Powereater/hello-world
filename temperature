@@ -1,0 +1,31 @@
+
+echo "temperature is a simple script that shows you how long it take for a freeze to bring your item to the desired temperature. After 1 minute the item will be cooled by half of the diffrence in temperature bewteen the item and the cooler. "
+
+echo -n "enter the temperature of item ->: "
+read d 
+
+echo -n "enter the temperature of freezer ->: "
+read f
+
+echo -n "enter the desired temperature ->: "
+read c
+
+
+t=0
+k=0
+
+while (( $d > $c )); do
+	echo "it's not cold enough after $t minutes, temp is $d celcius"
+	t=$(($t + 1))
+	k=$(($d + $f))
+
+	d=$((($d + $f) / 2))
+	
+
+done
+	echo "it's cold"
+
+echo "the temperature is $d after $t miutes"
+
+echo "temperature should be able to be modified into a  radioactive half-life script easily"
+
