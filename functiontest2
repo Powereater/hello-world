@@ -1,0 +1,16 @@
+#!/bin/bash
+
+isitzero () {
+	a=$1
+	if (( a == 0 )); then
+		echo "it's zero"
+	else
+		echo "it's not zero"
+	fi
+	return
+}
+
+echo -n "punch a number to determin if it's zero or not : "
+read a
+isitzero $a
+

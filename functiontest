@@ -1,0 +1,10 @@
+#!/bin/bash
+
+saycheese () {
+	echo "say cheese"
+	return
+}
+
+echo "boss"
+saycheese
+echo "dont do it"

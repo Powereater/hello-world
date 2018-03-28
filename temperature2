@@ -1,0 +1,50 @@
+#!/bin/bash
+
+echo 'temperature is a simple script that shows you how long it take for a freeze to bring your item to the desired temperature. After 1 minute the item will be cooled by half of the diffrence in temperature bewteen the item and the cooler. temperature now also accepts floats!!!'
+
+#all temperature should work be in celcius but this should work for farenheit as well so i didnt specify it
+
+echo -n "enter the temperature of item ->: "
+read d 
+
+echo -n "enter the temperature of freezer ->: "
+read f
+
+echo -n "enter the desired temperature ->: "
+read c
+
+
+t=0
+k=0
+#trying to get float is a baffleingly long when it comes to syntext
+#with 3 variables, the formula will only work for one of these, d>c>f or dcf.
+#the other 5 are dfc, cdf, cfd, fdc and fcd. the ifs will take care of all these senarios
+if (( $(echo "$d > $f" | bc -l) )); then
+#will take care of cfd, fdc, fcd.
+	while (( $(echo "$d > $c" | bc -l) )); do
+	#will take care of cdf
+		echo "it's not cold enough after $t minutes, temp is $d celcius"
+		t=$(($t + 1))
+		k=$(echo "scale=5; $d + $f" | bc -l)
+		
+
+	
+		d=$(echo "scale=5; (($d + $f) / 2)" | bc)
+
+	done
+	# will take care of dfc
+	if (( $t == 0 )); then
+		echo "you dont need to cool it"
+	else
+		echo "it's cold"
+		echo "the temperature is $d after $t miutes"
+	fi
+else	echo "the item is cooler than the freezer"
+
+	
+fi
+
+
+
+echo "temperature should be able to be modified into a radioactive half-life calculaion script easily"
+

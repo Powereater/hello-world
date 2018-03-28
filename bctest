@@ -1,0 +1,15 @@
+a=5
+b=4
+c=3
+g=1
+
+d=$(echo "scale=5; $a/$b" | bc)
+
+echo "the result is $d , and also $g"
+
+if (( $(echo "$d > $g" | bc -l) )); then
+	echo "d is bigger than g"
+else
+	echo "g is bigger than d"
+fi
+

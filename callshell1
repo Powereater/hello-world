@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "all i do is show up when called by another shell"
+echo 'i will make a=2 and b=5'
+
+a=2
+b=5
