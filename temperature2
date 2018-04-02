@@ -21,23 +21,28 @@ k=0
 #the other 5 are dfc, cdf, cfd, fdc and fcd. the ifs will take care of all these senarios
 if (( $(echo "$d > $f" | bc -l) )); then
 #will take care of cfd, fdc, fcd.
-	while (( $(echo "$d > $c" | bc -l) )); do
-	#will take care of cdf
-		echo "it's not cold enough after $t minutes, temp is $d celcius"
-		t=$(($t + 1))
-		k=$(echo "scale=5; $d + $f" | bc -l)
+	if (( $(echo "$c > $f" | bc -l) )); then
+		while (( $(echo "$d > $c" | bc -l) )); do
+		#will take care of cdf
+			echo "it's not cold enough after $t minutes, temp is $d celcius"
+			t=$(($t + 1))
+			k=$(echo "scale=5; $d + $f" | bc -l)
 		
 
 	
-		d=$(echo "scale=5; (($d + $f) / 2)" | bc)
+			d=$(echo "scale=5; (($d + $f) / 2)" | bc)
 
-	done
-	# will take care of dfc
-	if (( $t == 0 )); then
-		echo "you dont need to cool it"
-	else
-		echo "it's cold"
-		echo "the temperature is $d after $t miutes"
+		done
+		# will take care of dfc: INCORRECT
+		#output a diffrent answer if you dont need to use it
+		if (( $t == 0 )); then
+			echo "you dont need to cool it"
+		else
+			echo "it's cold"
+			echo "the temperature is $d after $t miutes"
+		fi
+	else 
+		echo "the freezer is not cool enough to achieve the direct temperature"
 	fi
 else	echo "the item is cooler than the freezer"
 
