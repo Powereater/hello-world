@@ -6,7 +6,7 @@ echo "hello im QA Sample and you have activated me...
 
 for now."
 
-echo -n "enter a number ==>: "
+echo -n 'enter a number ==>: ' 
 read n
 
 echo "you have printerd $n "

@@ -5,4 +5,23 @@ echo "i am qa test i am here to mostly test qa samp
 "
 
 
-printf '5\n4' | qasamp
+echo -e "5\n-6" | qasamp
+#i cannot currently get the input from echo to appear at all... :( i get enter a number and then blink
+
+echo -n "would you like to move on to the next set of tests? y/n: "
+read yn
+
+case $yn in
+	[Yy]* ) 
+		(echo -e "-5\n-6" | qasamp )
+		exit
+		;;
+	[Nn]* ) 
+		exit
+		;;
+	* ) 
+		echo "yes or no is not a difficult question"
+		exit
+		;;
+		
+esac

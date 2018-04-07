@@ -1,9 +1,40 @@
 #!/bin/bash
 
-echo "hello i test things, moslty temperature scripts including temp1, temp2 and soon to be here temp 3"
+echo "hello i test things, moslty temperature scripts including temp1, temp2 and soon to be here temp 3
 
+
+"
+a=24
+b=-7
+c=2
+echo "the three current numbers are $a ,$b and $c
+
+
+
+"
 #various options will be avaliable!!
 
 #printf so far does no display your input on the command line. there should be a way to fix it i think....
-printf '24\n-7\n2' | temperature2
+echo -e "$a\n$b\n$c" | temperature2
+
+echo -n "would you like to move on to the next set of tests? y/n: "
+read yn
+
+case $yn in
+	[Yy]* ) 
+		echo -e "$b\n$a\n$c" | temperature2 
+		
+
+		;;
+	[Nn]* ) 
+		exit
+		;;
+	* ) 
+		echo "yes or no is not a difficult question"
+		exit
+		;;
+		
+esac
+
+
 
