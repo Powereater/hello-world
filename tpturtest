@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "hello i test things, moslty temperature scripts including temp1, temp2 and soon to be here temp 3"
+
+#various options will be avaliable!!
+
+#printf so far does no display your input on the command line. there should be a way to fix it i think....
+printf '24\n-7\n2' | temperature2
+

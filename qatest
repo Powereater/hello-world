@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "i am qa test i am here to mostly test qa samp
+
+"
+
+
+printf '5\n4' | qasamp
