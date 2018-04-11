@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "animalsort is here to try and sort animals and things into diffrenct catagories
+
+"
+
+echo "enter the files to be used==>: "
+read a b c
+
+printf " %-20s | %-20s | %-20s \n ----------------------------------- \n" $a $b $c
+
+for i in [cat $a]; do
+	printf " %-20s | %-20s | %-20s \n " $a $b $c
+done
+
+#echo "first is $a recond is $b third it $c"
+
+#cat $a $b 
+
+#echo "what do you want to isolate?"
+#read d e f
+
+#cat $a $b | grep "$d\|$e"
+
+
