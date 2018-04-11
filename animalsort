@@ -1,25 +1,48 @@
 #!/bin/bash
 
-echo "animalsort is here to try and sort animals and things into diffrenct catagories
+
+echo "animalsort is here to try and sort animals and things into diffrenct catagories currently designed for 3 files at once
 
 "
 
 echo "enter the files to be used==>: "
 read a b c
 
-printf " %-20s | %-20s | %-20s \n ----------------------------------- \n" $a $b $c
 
-for i in [cat $a]; do
-	printf " %-20s | %-20s | %-20s \n " $a $b $c
-done
 
-#echo "first is $a recond is $b third it $c"
+printf "%s	%s	%s \n--------------------------------------------- \n" $a $b $c
+#you dont actully need the -d and the giant space
+echo "$(paste -d '	' $a $b $c)"
 
-#cat $a $b 
+echo -n "select you preferred sorting system
 
-#echo "what do you want to isolate?"
-#read d e f
+1. color
+2. species
 
-#cat $a $b | grep "$d\|$e"
+"
+read REPLY
+
+if [[ $REPLY =~ ^[1-2]$ ]]; then
+	if [[ $REPLY == 1 ]]; then
+		cat $a $b $c | grep green | cat > green
+		cat $a $b $c | grep orange | cat > orange
+		printf "%s	%s	%s \n--------------------------------------------- \n" green orange $c
+
+		echo "$(paste -d '	' green orange $c)"
+		exit
+	fi
+	if [[ $REPLY == 2 ]]; then
+		echo "	NOT READY YET!!!"
+		exit
+	fi
+	
+else
+	echo "invalid, cant you read?" >&2
+	exit 1
+fi
+
+
+
+# can be made mre complex, with "intellignet" sorting according to what's displayed
 
 
